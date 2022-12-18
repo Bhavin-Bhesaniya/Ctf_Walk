@@ -1,0 +1,6 @@
+Reconnaissance :- 
+ nmap -sV 10.10.216.228
+ nmap -n 10.10.216.228
+ 
+
+Gobuster :- gobuster dir -u http://10.10.216.228:3333 -w /usr/share/wordlists

@@ -1,0 +1,12 @@
+Manually review web application for security issues using only in-built tools in browser
+
+View Source - Use browser to view human-readable source code of a website
+Inspector   - Learn how to inspect page elements and make changes to view usually blocked content
+Debugger    - Inspect and control flow of page's JavaScript
+Network     - See all network request page make
+
+
+View Soource 	:- Read Comment | External Links | Directory/travasal | Framework
+Developer-tools :-
+ - Debugging application 
+ Inspector 

@@ -1,0 +1,43 @@
+Open Source Intelligence(OSINT) :-
+ - Gathering and analysing publicly available data
+ - Get information via internet, indexed by search engine, closed forums, deep and darkweb
+ 
+ 
+ 
+Google Dorks :- 
+ - Advanced search operators to find results that usually not displayed
+ - Locate website configuration, loop holes
+   
+ Types :-
+  inurl :- Searches for specified text in all indexed URLs | Ex :- inurl:hacking fetch all url containt word
+  filetype :- Search specified file extension | Ex :- filetype:pdf "hacking" 
+  site  :- Search all indexed URLs for spcific domain | Ex :- site:tryhackeme.com
+  cache :- Get latset cached version by Google Search engine
+  
+  
+  
+WHOIS lookup :-
+ - Database store public domain information such as registrant(domain owner), administrative, billing and 
+   technical contacts in centralised database 
+ - Database is publicly available that contain different PII Information
+ - Bad actor used to target this information for, Spear phishing campings
+ - Now, Registrars offer this information private
+
+
+
+Robots.txt :-
+ - Publicly accessible file created by website administrator and intended for search engine to allow or disallow    	indexing of website's URLs   
+ - Directly accessible through the domain's main URL   
+ - Communication between websites and Search engine crawlers
+ - File publicly accessible, it doesn't mean anyone can edit or modify it
+ - Disallow parameter helps bad actors to identify sensitive directories that manually accessed and exploited, like admin panel, logs folder
+ Ex :- google.com/robots.txt
+
+
+
+
+Breached Database Search :-
+ - Leaked data publicly available and most of time contains PII
+ - Same password across all website enables bad actor to takeover complete account
+ - HaveIBeenPwned
+  

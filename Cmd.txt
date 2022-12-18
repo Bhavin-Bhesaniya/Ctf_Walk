@@ -1,0 +1,235 @@
+Basic :-
+ ls - Lists all files and directories in the present working directory
+ cd - Changing Directories
+ man - Opens man pages for specified tool
+ nano - Terminal based text editor
+ <tool> -h - Print help page of the tool
+ apropos <keyword> - Searches through man pages' descriptions for instances of a given keywor
+
+
+
+Environment :-
+ env  - Display all environment variable
+ echo - Display environment variable
+ unset - Remove variable
+ printenv - Show all currently defined environment variable
+
+
+
+Process :-
+ ps    :- See processes running status
+ fg    :- Put process into foreground
+ pid   :- Return Current process id
+ top   :- Active process(htop)
+ bg/c+z:- Used to run process in background
+ ps -f :- Provide more information about process
+ ppid  :- Return Parent Process id
+ kill  :- Terminating Current process(Ctrl+c)(killall)(pkill)
+ jobs  :- Lists all processes that are running in the background
+ nice  :- Start new process with specified priority
+ renice :- Change the nice value of a currently running process
+
+
+
+Pipe and Filter :-
+ $ls -l | grep "Aug" :- Run ls and Grep command together(Redirect Output)
+ sort :- Arrange lines of text alphabetically(Default) or numerically
+
+
+
+Network :-
+ ss - Investigate sockets statistics | showing information similar to netstat | More TCP information
+ su - Request user credentials | Default user superuser/running an interactive shell as root
+ pr - Paginate files for printing
+ 
+ ssh  - Remote Access Unix machine
+ ftp  - Upload and download file from remote computer
+ gpg  - Used in linux for secure communication using encryption of OpenPGP part of GNU Privacy guard(GnuPG)
+ scp  - File Transfer on server(Secure Transfer copy file) use authentication and login session
+ dir  - Display file in current directory
+ put  - Upload file from local computer to remote computer
+ get  - Download file from remote to local
+ dig  - Performs DNS lookups and Display DNS information for domain
+ 
+ host - Display DNS IP address for domain
+ quit - Logout
+ mail - Send mail
+ curl - Transfer data from or to webserver
+ wget - Alternative to curl that downloads files from FTP or HTTP(s) server
+ ping - Send request to available host on network(ping6)
+ 
+ rsync - Synchronization
+ whois - Get information for domain such as owner of the domain
+ 
+ telnet - Make connection, login then conduct work on computer at another site
+ finger - Check all logged-in users on local machine
+ lp/lpr - Print file onto paper
+ 
+ tcpdump - network troubleshooting command which is also known as a packet sniffer is used to capture and display packets from a network
+ netstat - Shows network status
+ ethtool - Query or control network driver and hardware settings
+ 
+ updatedb - Updates the locale database for existing contents on the system
+ ifconfig - Assign or view address to network interface and/or configure network interface parameters
+ hostname - Set or print name of current host system
+ nslookup - querying the Domain Name System to obtain domain name or IP address from DNS record
+ 
+ traceroute	- Trace network path taken to a device
+ dig -x IP_ADDRESS :- Reverse lookup of IP_ADDRESS
+
+
+
+File/Directory command :- 
+ cd - Change Directory 
+ cp - Copies one file/directory to specified location
+ wc - Prints newline, word, and byte counts for a given input
+ od - Display binary file content
+ tr - Translate/delete characters
+ ln - Create Symbolic link(Window shortcut type)
+ *  - Matching any filename
+ ?  - Matching any character
+ ~  - Home directory
+
+ cat - Create file or Display Content
+ vim - Create new file if it not exist otherwise open existing file in read-only mode
+ cut - Extract selected fields of each line of a file
+ pwd - Determine where you are within filesystem at time
+ awk - Pattern scanning and processing language
+ sed - Stream editor (esp. search and replace)
+ TAB - Try to complete filename
+ tee - Used for chaining and redirection of tasks
+ 
+ grep - Search text for a pattern
+ diff - Compare two files
+ tree - Lists the contents of a directory recursively
+ uniq - Filter out repeated lines in file
+ lsof - list all open file
+
+ split - Split files 
+ chgrp - Change file groups
+ 
+ mkdir dir :- Creating Directories
+ rmdir dir :- Removing or delete Directories
+ mv old newdir - Rename Directories or move directories
+ rm filename   - Remove file
+ more filename - Browse file from beginning to end
+ 
+ umount - unmount(remove) file system from system
+ mount  - To see what currently mounted (available for use) (in order to be usable by system)
+ /mnt   - Temporary mount(CDROM drives, remote network drives, floppy drives) located
+
+ find   - Find file/directory  
+ locate - Find contents on the system
+ 
+ file - Identifie file type(binary, text, etc)
+ head - Show beginning of file
+ less - Browses file from end or beginning
+ tail - Show end of file
+ touch - Create blank file or update modification time
+ which - Show location of file if it in PATH
+ whereis - Show location of file
+ modinfo - Get information about any particular module
+ modprobe- Remove a module
+
+ gzip   - Compress file with gzip compression
+ gunzip - Unzip file that has zip compression 
+ tar cf - Create uncompressed tar archive(xf)
+ tar cfz- Create tar archive with gzip compression(xzf,cjf,xjf)
+
+
+ 
+System :-
+ w - Who is online
+ df - Display disk space usage
+ du - Specify directories to show disk space usage on particular directory
+ 
+ cal  - Month calender
+ date - Current date
+ lshw - Displays information on the hardware configuration of the system
+ 
+ fdisk - view the existing partitions, create a new partition, delete or change existing partitions.
+ lsblk - Displays block device-related information of the machine
+ watch - Showing Periodic updates
+ dmesg - Display messages in kernel ring buffer
+ uname - Prints operating system name
+ clear - Clear terminal 
+ lsusb - Lists USB devices 
+ lspci - Lists PCI devices 
+
+ hdparm - Show info about disk sda   
+ hostid - Display id of host system
+ uptime - Show how long system has been running + load
+ reboot - Reboot system
+ mpstat - used to print processor statistics and helps to monitor CPU utilization on your system
+ vmstat - Provides reporting virtual memory statistics
+ iostat - Monitor system input/output (I/O) device
+ hwinfo - List details for all hardware, including their device files and configuration options
+ reboot - Reboot system
+ 
+ history - Display list of all the typed commands in the current terminal session
+ cpuinfo - Install package which gives us cpu information
+ meminfo - Display memory information
+ hostname- Shows name of system host
+ free -h - Display free and used memory
+ findmnt - list mounted filesystems in Linux
+ 
+ poweroff - Shut down system by powering off
+ shutdown - Shut down system
+ badblocks - Test for unreadable blocks on disk sda
+ dmidecode - Display DMI/SMBIOS (hardware info) from the BIOS
+ systemctl - systemd control manager
+ last reboot - Show system reboot history
+
+
+
+User :-
+ id  - Returns users identity
+ who - Display who is logged in
+ last - Who last logging
+ sudo - Execute command as root user
+ 
+ chown - Changes the owner and group of a file or directory
+ chmod - Change file or directory Permissions(rwx0, rwx-, rwx)(-+=)(u,g,o,a(all))(777,644)
+ chgrp - Change the group of a file or directory
+ group - Group information for each account
+ 
+ whoami - Displays current username
+ passwd - Keep user account and password  | Hold majority information about account on Unix system
+ shadow - Hold encrypted password of corresponding account, Not all systems support this file
+ logger - Send logging messages to syslogd daemon
+ gshadow - Secure group account information
+
+ useradd - Lowlevel utility to Add account to system
+ adduser - Highlevel utility to add account to system 
+ usermod - Modifies account attributes
+ deluser - Delete account from system
+ groupadd - Adds group to system
+ groupmod - Modifies group attributes
+ groupdel - Remove group from system
+ addgroup - Add group to the system
+ delgroup - Remove group from the system
+
+
+
+Run initialization Script in different shell :-
+ .profile - Bourne shell(sh) initialization script
+ .kshrc   - Korn shell (ksh) initialization script
+ .cshrc   - C shell (csh) initialization script
+ .rhosts  - Remote shell configuration file
+
+
+
+Install Package Command :-
+ apt :- High-level package management command-line utility
+ gem :- Standard package manager for Ruby 
+ pip :- Standard package manager for Python
+ git :- Revision control system command-line utility
+ yum/rpm :- Package Installer
+ 
+ make :- build executable programs and libraries from source code
+ dpkg :- Install, remove and configure Debian-based packages
+ snap :- Install, remove and configure snap packages
+
+ aptitude :- Alternative to `apt`
+ 
+ python3 -m http.server` | Starts a Python3 web server on TCP port 8000

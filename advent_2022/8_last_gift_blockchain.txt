@@ -1,0 +1,46 @@
+- Best Festival Company lost all its currency in the exchange because of the attack. 
+
+
+BlockChain :-
+ - Act as database to store information in specified format and is shared among members of network with no one
+   entity in control
+ - Digital database distributed among nodes of a peer-to-peer network so there is no central server hence
+   "Decentralized"
+ - Each peer maintain integrity of blockchain
+ - If one member modify blockchain maliciously, other compare it to their blockchain for integrity
+  
+
+
+Smart Contract :-
+ - Smart contract is a program stored on a blockchain that runs when pre-determined conditions are met.
+ - All blockchain rely on technology known as Smart Contract
+ - Used as Backbone of "Decentralized Finance applications" to support cryptocurrency on blockchain
+ - Defi facilitate currency exchange between entities;
+ - Scripting Language used such as Rust, Javascript, Solidity, Vyper and YUL to create contract
+ 
+ 
+ Functionality :-
+  - Use with OOPS
+  - Smart contract fields or information should be private and only accessed or modified from functions defined
+    in the contract
+  - Contract function such as accessors and mutators act as balance, depositing, and currency withdrawing
+  - Once contract deployed on blockchain another contract use its function to call or execute
+    
+ 
+ Vulnerability in Smart Contract :-
+  - Due to logic issues or poor exception handling  
+  - Conditions are insecurely implemented
+  - Recall contract consecutively to makes new calls to function while old is executing
+
+ 
+ Re-entrancy Attack :-
+  - Malicious contract use fallback function to continue depleting contract's total balance due to flawed 
+    logic after an initial withdraw function occurs 
+ 
+ 
+Remix IDE :-
+ - file explorer → default_workspace → load a local file into the current workspace
+ - .sol files to be imported
+ - EtherStore.sol | Attack.sol
+ - Compile contract -> Navigate to solidity compiler
+ -  

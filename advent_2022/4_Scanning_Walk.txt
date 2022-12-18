@@ -1,0 +1,71 @@
+Scanning :-
+ - Set of procedures for identifying live hosts, ports, and services, discovering os of target system, and
+   identifying vulnerabilities and threats in network 
+ - Reveals parts of attack surface from which attacker exploit system
+ 
+ Types :-
+  Passive :- 
+   - Scanning network without directly interacting with target device 
+   - Done through Packet Capture(WireShark)
+   - Give basic asset information like OS Version, Network Protocol etc..
+  
+  Active :-
+   - Scan individual endpoints to retrieve information
+   - Sending packets or queries directly to specific assets rather than passively collecting that data by
+     "catching" it in transit     
+   - Targets can be single endpoint or network of endpoints
+ 
+
+
+Scanning Techniques :-
+ Network :- 
+  - Collection of interconnected hosts or computers to share information and resources
+  - Helps to discover and map complete network, including any live computer or hosts, open ports, IP addresses, 
+    and services running on any live host and os
+  - Once network mapped, attacker executes exploits as per target system and services discovered
+   Ex :- Outdated apache version 
+ 
+ 
+ Port Scanning :-
+  - Port is a number assigned to uniquely identify connection endpoint and to direct data to specific service
+  - At Software level, Within OS, port is a logical construct that identifies a specific process or a type of
+    network service
+  - Method to examine open ports in network that capable of receiving and sending data 
+  - Port number varies between 0 to 65,536
+  
+  Closed Port :- Host is not listening to specific port
+  Open Port   :- Host actively accept connection on specific port
+  Filterd Port:- Port is open, but not accepting connections as it open for specific IP Address only
+  
+ 
+ Vulnerability Scanning :-
+  - Identifies vulnerability in automated way that helps to determine whether system thretened or exploited
+  - Free-paid tools helps to identify system vulnerability through Pre-build database
+  Tools :- Nessus | Acunetix
+ 
+   
+  
+
+
+Scanning TOols :-
+ Nmap :-
+  - Used to carry out port scanning, discover network protocols, identify running services, and detect operating
+    systems on live hosts
+ 
+ Nikto :-
+  - Open-source software that allow scanning websites for vulnerability
+  - Looking for subdomains, outdated servers, debug message
+  Ex :- nikto -host machine_ip
+  
+  
+  
+Practical :- 
+ - nmap -A 10.10.9.190 -oN nmap_result.txt
+ - GO inside attack box and login with :- smb://10.10.9.190 | Id :- Ubuntu | Password :- S@nta2022
+ - Admin -> USer.txt -> Password.txt
+
+
+ 
+GO  
+  
+  

@@ -1,0 +1,48 @@
+# Nmap 7.93 scan initiated Sat Dec  3 02:47:48 2022 as: nmap -A -vv -T5 -oN nmapresult.txt 10.10.209.165
+Warning: 10.10.209.165 giving up on port because retransmission cap hit (2).
+Nmap scan report for 10.10.209.165
+Host is up, received conn-refused (0.24s latency).
+Scanned at 2022-12-03 02:47:49 CST for 41s
+Not shown: 975 closed tcp ports (conn-refused)
+PORT      STATE    SERVICE           REASON      VERSION
+21/tcp    open     ftp               syn-ack     vsftpd 3.0.3
+22/tcp    open     ssh               syn-ack     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 ef1f5d04d47795066072ecf058f2cc07 (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5hdrxDB30IcSGobuBxhwKJ8g+DJcUO5xzoaZP/vJBtWoSf4nWDqaqlJdEF0Vu7Sw7i0R3aHRKGc5mKmjRuhSEtuKKjKdZqzL3xNTI2cItmyKsMgZz+lbMnc3DouIHqlh748nQknD/28+RXREsNtQZtd0VmBZcY1TD0U4XJXPiwleilnsbwWA7pg26cAv9B7CcaqvMgldjSTdkT1QNgrx51g4IFxtMIFGeJDh2oJkfPcX6KDcYo6c9W1l+SCSivAQsJ1dXgA2bLFkG/wPaJaBgCzb8IOZOfxQjnIqBdUNFQPlwshX/nq26BMhNGKMENXJUpvUTshoJ/rFGgZ9Nj31r
+|   256 5e02d19ac4e7430662c19e25848ae7ea (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHdSVnnzMMv6VBLmga/Wpb94C9M2nOXyu36FCwzHtLB4S4lGXa2LzB5jqnAQa0ihI6IDtQUimgvooZCLNl6ob68=
+|   256 2d005cb9fda8c8d880e3924f8b4f18e2 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOL3wRjJ5kmGs/hI4aXEwEndh81Pm/fvo8EvcpDHR5nt
+80/tcp    open     http              syn-ack     Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Annoucement
+99/tcp    filtered metagram          no-response
+514/tcp   filtered shell             no-response
+625/tcp   filtered apple-xsrvr-admin no-response
+1041/tcp  filtered danf-ak2          no-response
+1046/tcp  filtered wfremotertm       no-response
+1124/tcp  filtered hpvmmcontrol      no-response
+1131/tcp  filtered caspssl           no-response
+1998/tcp  filtered x25-svc-port      no-response
+3551/tcp  filtered apcupsd           no-response
+4000/tcp  filtered remoteanything    no-response
+4129/tcp  filtered nuauth            no-response
+4443/tcp  filtered pharos            no-response
+5000/tcp  filtered upnp              no-response
+5959/tcp  filtered unknown           no-response
+6002/tcp  filtered X11:2             no-response
+6005/tcp  filtered X11:5             no-response
+7443/tcp  filtered oracleas-https    no-response
+8994/tcp  filtered unknown           no-response
+9103/tcp  filtered jetdirect         no-response
+10012/tcp filtered unknown           no-response
+19801/tcp filtered unknown           no-response
+49175/tcp filtered unknown           no-response
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Dec  3 02:48:30 2022 -- 1 IP address (1 host up) scanned in 42.14 seconds

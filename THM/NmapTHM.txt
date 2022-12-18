@@ -1,0 +1,173 @@
+First Stage - Port Scanning 
+ - Run network service, it open networking construct called “port” to receive connection
+ - Necessary for making Connection to access service and make remote connection
+ - Open port listening on server and randomly selected port on own computer
+ - HTTP - 80 | HTTPS - 443 | NetBIOS - 139 | SMB - 445
+ 
+
+Nmap :-
+ - How port respond based on that Open, Closed or Filtered(Usually by firewall)
+ Syntax :- nmap [Scan Type] [Options] [Target]
+ 
+ Target :-
+  - Can pass hostname(rru.ac.in), IP address(192.168.10.1), Networks 
+  -iL :- Input file that contain list of Host
+  -iR :- Choose random host
+  --exclude     <Host1,Host..n> | --excludefile <file>           
+ 
+ 
+ SCAN :-
+   -sS :- TCP SYN
+   -sT :- Connect
+   -sU :- UDP Scan
+   -sN :- Null scan
+   -sF :- Fin
+   -sX :- Xmas
+   -sO :- IP Protocol Scan
+   -sV :- Version info
+   -sC :- Script Scan
+   -PO :- Protocol List
+   -O  :- Enable OS detection
+   -p  :- Only scan specified ports  | -p port | -p startport-endport | -p-
+   -F  :- Scan default port scan 
+   -T  :- Set timinig template(Higher Faster)
+   -oN :- Output scan in normal
+   -oG :- to give filename
+   -A  :- Enable OS detection, version detection, script scanning, and traceroute
+   -6  :- Enable IPv6 Scanning
+   --open :- Show only open ports
+   -sL :- List Scan
+   -sn :- Ping Scan
+   -v  :- Increase Verbosity level
+   -d  :- Debugging
+   -oA :- Store output in major 3 format
+   --script :- Activate script from nmap scripting library 
+ 
+
+ TCP Connection 3-Way Handshake :-
+  -sT - TCP Connect Scans perform with each target point
+
+  RFC 793 :-
+   - If connection not exist then reset sent in response to any incoming segment except another reset
+   - SYNs address to non-existent connection rejected by this means
+ 
+  - SYN -> Reset (Port Closed)
+  - SYN/ACK 	 (Open)
+  - SYN -> Droped show that protected by firewall and port is Filtered
+  
+  
+  -sS - SYN Scan used for Port-ranges of target(Half-open) or (Stealth) scan
+  - Default scan run by Nmap if sudo permission
+  Advantage    :- Bypass old IDS | Faster than TCP Connect   
+  Disadvantage :- Required Sudo Permission because require ability to create raw packet 
+  
+
+
+ UDP Scan :- -sU
+  - Send packet and hoping that they make connection
+  - Completey empty request
+  - No response when packet sent it marked as open | filtered
+  - Request is send again for Double-Check and make OPEN 
+  - ICMP(Ping) packet return host Unreachable means port Closed
+  - Due to this diffculty take 20 min for 1000 port so used :- --top-ports number
+  Syntax :- nmap -sU --top-ports 20 <target>
+ 
+ 
+ 
+ Null, FIN, XMAS :- -sN | -sF | -sX
+  - Null used when TCP request send with no flags set at all
+  - FIN send request for close connection
+  - Xmas send with PSH, URG, FIN 
+  - Port either open|filtered, closed or filtered(ICMP response with Unreachable)
+  - Sending request without SYN bypass firewall 
+  - Main use of this 3 Firewall Evasion
+  - Windows respond with RST for every port
+  
+  
+
+ ICMP Network Scanning :- 
+  - See which IP has Active Host
+  ping sweep :- -sn
+   - Send ICMP packet to each possible IP address for specified network
+   - When send response it means Active Host
+   - -sn with IP range with either hypen(-) or CIDR notation
+   - Not to scan any ports and rely on ICMP echo packets
+   Syntax :- nmap -sn 192.168.0.1-254  | 0/254
+   
+   - ICMP echo cause nmap to send TCP SYN to port 443 and TCP ACK(If not run as root) 80
+   CIDR Notation :- Default submask class B -16
+   
+ 
+ 
+ 
+ NSE(Nmap Scripting Engine) :-
+  - Written in LUA progrmming language
+  - From Scanning Vulnerability to exploit 
+  - Useful for Reconnaisance
+  Script Category :-
+   safe :- Not affect target
+   vuln :- Scan for vulnerabilities
+   auth :- Attempt to bypass authentication for running service(Log into FTP server anonymously)
+   brute:- Attempt to bruteforce credentials for running services
+   Intrusive :- likely affect target
+   Exploit   :- Attempt to exploit vulnerability
+   Discovery :- Query running service for further information about network(Query SNMP server)
+  nmap --script-help <script-name> :- Help that give more information when run locally
+  
+  --script :- Activating NSE Script
+  --script=category / <script-name>
+  --script=script1,script2 
+  --script-args (, if they're exploiting an authenticated vulnerability)  
+  <script-name>.<argument>
+  
+  http-put :- used to upload files using PUT method(Two args :- URL to upload file to and file location on disk
+  Ex :- nmap -p 80 --script http-put --script-args http-put.url='/dav/shell.php',http-put.file='./shell.php'
+  
+  
+ NSE Store :- 
+  - Official Website contain list of offical script
+  - Locally stored in linux :- /usr/share/nmap/scripts   | cat scripts.db
+ 
+ 
+ To install scripts from nmap :- 
+  - sudo apt update && sudo apt install nmap
+  - sudo wget -O /usr/share/nmap/scripts/<script-name>.nse https://svn.nmap.org/nmap/scripts/<script-name>.nse  
+  - nmap --script-updatedb 
+ 
+ 
+
+ Bypass Firewall Evasion :-
+  - Windows by default block all ICMP Packet
+  - Nmap always treat target host being alive, bypassing ICMP Block so it takes long times to complete
+  - If Host dead Nmap Still checking and double checking specified Port
+  -Pn :- Tell Nmap to not bother pinging host before scanning it
+  -f  :- Fragement packet into smaller pics to bypass
+  --mtu <number> :- Same task perform but provide more control over size of packet | Must be multiple of 8
+  --scan-delay <time-ms> :- 
+   - Delay between packet sent 
+   - Useful when network unstable
+   - Evading time-based firewall
+  --badsum :-
+   - Generate invalid checksum for packet
+   - TCP/IP stack drop this packet but firewall potenstially respond automatically without bothering to check
+     checksum of packet
+   
+   
+  
+                
+  
+   
+  
+  
+  
+  
+   
+  
+   
+ 
+  
+   
+   
+    
+  
+

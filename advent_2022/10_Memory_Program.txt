@@ -1,0 +1,11 @@
+Cetus :-
+ - Browser plugin that allowing you to explore the memory space of Web Assembly games that run in your browser
+ - Provide tools to easily find any piece of data stored in memory and modify it if needed
+ 
+ Install :-
+  - install gzip file
+  - unzip file 
+  - chrome -> extension -> developer mode -> load extension
+  - Reload browser -> https://10.10.97.67/ -> inspect -> cetus
+  
+  

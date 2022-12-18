@@ -1,0 +1,147 @@
+Email Analysis :-
+ - Process of extracting email header information to expose email file details
+ - Header contain details of Sender, Recipient, Path, Return Address and Attachments
+ - Enough to determine suspicious/abnormal in Email like Filtering/Quaranting/Delivering
+ 
+ Main Concerns in email analysis :-
+  Security Issues    - Identifying suspicious/abnormal/malicious patterns in emails.
+  Performance issues - Identifying delivery and delay issues in emails 
+
+ - Part of penetration testing and red teaming implementations
+ - In-depth analysis requires an isolated environment to work
+ - Suppose you are outside the corresponding team in that case evaluate the email header using the raw format and
+   conduct the essential checks like the sender, recipient, spam score and server information
+  
+   
+ 
+ 
+Security Concern :-
+ Social Engineering :- 
+  - Psychological manipulation of people into performing or divulging information by exploiting weaknesses in
+    human nature   
+  - Weakness can be curiosity, jealousy, greed, kindness, and willingness to help someone
+  
+ 
+ Phishing :-
+  - Sub-section of social engineering delivered through email
+  - Either revelaing personal information and credentials or executing malicious code
+  - Usually appear from trusted sources that tries to tempt or trick people into downloading software,
+    opening attachments, or following links to a bogus website
+     
+
+
+
+
+Strcture of Email Header :-
+  Field 	Details 
+  From		Sender address
+  To		Receiver's address, including CC and BCC
+  Date		Timestamp, when email was sent
+  Subject	Subject of the email
+  Return Path	Return address of reply, a.k.a. "Reply-To" - reply will go to the address mentioned in this field
+  DKIM(DomainKeys Identified Mail) Signatures :- 
+   - Email signatures are provided by email services to identify and authenticate email
+
+  SPF(Sender Policy Framework) :- 
+   - Shows server that was used to send email
+   - Help to understand if the actual server is used to send the email from a specific domain
+
+  Message-ID    Unique ID of the email
+  MIME-Version	Used MIME version that helps to understand delivered "Non-Text" contents and attachment
+  X-Headers	
+   - Receiver mail providers usually add these field
+   - Provided info usually experimental and can be different according to mail provider
+
+  X-Received    Mail servers that the email went through
+  X-Spam Status	Spam score of the email
+  X-Mailer      Email client name
+ 
+ 
+
+
+Important Email Header fields for Quick Analysis :-
+ Official Server Share mail
+ 
+ From, To, CC Valid addresses? :- Having invalid addresses is Red flag
+ From, To Fields are same      :- Same Sender and Recipient is Red flag 
+ From, Return-Path Same        :- Different values in seciotn Red Flag
+ "Message-ID" field exist,valid:- Empty and malformed values are red flags.
+ 
+ - Email Header Parser tool Spot the email header's details easily
+ - .eml or .msg extension sublime detect strcture 
+ 
+ 
+Header Tools :- 
+  emlAnalyzer - 
+   - Designed to parse email header 
+   - Body, embedded URLs, plaintext and HTML data, and attachments
+  
+  Syntax :- emlAnalyzer -i --header -u --text --extract-all
+   -i  -  File to analyse | -i/path-to-file/filename
+   -h  -  Show header | URL | Cleartext data | Extract all element
+    
+  
+  OSINT Tools :- https://emailrep.io/   
+   VirusTotal :- Cloud-based detection toolset and sandbox environment   
+   InQuest    :- network and file analysis by using threat analytics
+   IPinfo.io  :- Detailed information about an IP address
+   Talos      :- IP reputation check service is provided by Cisco Talos
+   Urlscan.io :- Analyses websites by simulating regular user behaviour
+   Browserling / WannaBrowser :- Browser sandbox is used to test suspicious/malicious links
+ 
+ 
+ 
+ Body Attachment Analysis :-
+  - Conduct hash-based file reputation analysis in Virustotal by uploading website
+  - 
+  
+  
+  
+  
+  
+Practical :-
+ - Urgent:.eml file on the Desktop of the VM
+ - From :- chief.elf@santaclaus.thm
+ - Return-Path :- murphy.evident@bandityeti.thm
+ - From :- Chief Elf
+ - X-spam Score :- 3
+ - Message-ID :- AoC2022_Email_Analysis -> it base64 hash
+ - https://emailrep.io/ and enter the email address ‘chief.elf@santaclaus.thm’ :- RISKY 
+ - filename of the attachment can be found in the Urgent:.eml file. Details can be found starting on line 38  
+   filename :- Division_of_labour-Load_share_plan.doc
+ - To get hash value, we need to extract attachment Urgent:xml file :-
+   sha256sum Filename :- 0827bb9a2e7c0628b82256759f0f888ca1abd6a2d903acdb8e44aca6a1a03467
+ - VirusTotal Search Hash value :- 0827bb9a2e7c0628b82256759f0f888ca1abd6a2d903acdb8e44aca6a1a03467  
+ - SHow eva
+ - https://labs.inquest.net/ and click on the ‘INDICATOR LOOKUP' Add Hash value/ Show SUb Category :-
+   - macro_hunter 
+     
+
+
+      
+ 
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     

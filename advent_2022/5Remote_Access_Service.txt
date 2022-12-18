@@ -1,0 +1,59 @@
+Remote administration of computer systems :-
+ SSH - Secure Shell
+  - Unix-System remote login
+  - Provide user with CLI that used to execute commands 
+  
+  
+ RDP - Remote Desktop Protocol / Connection / RD :-
+  - GUI to access windows system
+  
+
+ VNC - Virtual Network Computing
+  - Allows user to view the desktop and (optionally) control the mouse and keyboard 
+
+
+
+
+Authentication :-
+ - Process where system validates your identity
+ - User claiming specific unique identity
+ - Security TOken | Password or PIN | 
+ - Use passwords or private key files for authentication 
+ - Password will be  prone to myriad attaack
+ 
+
+Attacking Password :- 
+ - Shoulder Surfing | Password Guessing | Dictionary Attack | BRute Force Attack
+ - Attackbox :- usr/share/wordlists/rockyou.txt
+ - Rockyou contain more than 14M password
+ 
+ 
+
+Hacking Authentication Service :-
+ - nmap scan target 
+ - find running service
+ - BRuteforce on running service
+ - Hydra supports many protocols including SSH, VNC, FTP, POP3, IMAP, SMTP, and all methods related to HTTP 
+ Ex :- Hydra -l username -P wordlist.txt server service   
+  - Server will be IP address | Service indicate in which you are trying to launch dictionary attack
+  - if username available provide it
+  
+ Ex :- hydra -l mark -P /usr/share/wordlists/rockyou.txt ssh://MACHINE_IP
+ 
+ 
+ 
+ 
+ 
+Connecting VNC Server :-
+ - Application -> Internet -> Remmina -> VNC -> IP -> Password :- 1q2w3e4r
+ 
+ 
+
+
+Practical :- 
+ - hydra -P /usr/share/wordlists/rockyou.txt -f vnc://10.10.9.190 -o hydraresult.txt -t 64 -I 
+ - Application -> Internet -> Remmina -> VNC -> IP ->
+    
+ 
+ 
+ 

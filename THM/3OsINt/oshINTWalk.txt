@@ -1,0 +1,19 @@
+Open Source Intelligence(OSINT) :-
+ - Collection and analysis of data gathered from open source(covert and publicly available sources)
+   to produce actionable intelligence
+ - Most of tools and technique used to conduct OSINT initiatives designed to help security professional 
+   (or threat actor) focus their effort on specific areas of interest
+ - Darkside it that anything find by Security professional can also find by Threat Actor
+ 
+
+Download file :- Windows.jpg
+Exiftool :-
+ - Provide metadata of image
+ - Copyrights image shown owner name :- OWoodflint
+ - Serach name in Google
+ 1. First site open twitter    :- Show Avtar cat
+ 2. Open second website github :- Information about Where live
+ 3. Open Wigle which gave information regarding wireless network
+ 4. OPEN WORDPRESS website it has other information
+ 5. View Sourcecode of that website u found hidden name
+    

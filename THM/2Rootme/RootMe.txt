@@ -1,0 +1,56 @@
+Root Me :- AOC2022
+
+Nmap :- 
+ - nmap -T5 -O -sV IP -oN nmap.result
+ -sV :- Vulnerability or Bug happen in specific version
+ - SSH port check always in last
+ - 
+ 
+
+Dirbuster :- 
+ - http://IP:80
+ - Tree view show which page in this ip
+ - Which page can we access 
+ - 
+
+
+
+Run IP in browser :-
+ - View Source code and learn what inside it
+ - IP/robotos.txt
+ - Show not found page with version | Version found attacker easily find bug 
+ - IP/Panel which found in Dirbuster Scanning
+ - Try to upload payload file that go on server and back reverse shell
+ - Need extension that not block and run on server so get we break it
+ - Google -> PHP Reverse shell -> Pentestermonkey
+ - Change IP of where connect | Port Listner 
+ - Change PHP extension php3,php4,php5(White -listing / Black-listing)  
+ - Php5 done
+ - ALl files go in upload url which find in Dirbuster
+ - Create listner :- nc -nvlp 4444 (0.0.0.0 - All interface in listing mode | Anyone can join )
+ - Reverse Shell :- 
+   ID - 
+    www-data :- low priviledge run only webserver 
+    kali/ubuntu user :- by default has sudo power
+ 
+ - Manual enumeration which contain files, data, crednitals
+ - cd /home -> cd rootme -> cd .. -> cd test 
+ - cd /var/www(Apache all files store here)
+ - cat user.txt -> flag
+ 
+ 
+ 
+ Find SUID :- 
+  - User who create file with his SUID bit we can run that file
+  - If root user create file but i have not permission but if i run it with suid bit i can run it
+  - Permission in INterger | SGID - 2000 | + - to find in both)
+  - find / -perm -4000 -type f 2>/dev/null(Error in dev recycle bin)
+  
+ gtfobins :- SO many tools for priviledge Esclation
+  - SUID -> PYthon -> SUID -> COpy command :- python -c 'import os; os.excel("/bin/sh", "sh", "-p")'    
+  - ls -la /usr/bin/python :- python binary save here with root permission
+  - we ask python to get shell on which permission you run    
+  - now we are root user -> whoami
+  - cd /root/ -> ls -> cat root.txt -> FLag
+ 
+   

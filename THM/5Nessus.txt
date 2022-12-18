@@ -1,0 +1,14 @@
+Neesus :- 
+ - Vulnerability Scanner
+ - Similar to nmap to find and report vulnerabilites
+ - Doesn't make assumptions when scanning like assuming web application running on port 80 for instance
+ - Offer both Free and Paid Service  
+ 
+ Step to install in kali :-
+  1. sudo -dpkg Nessus-10.4.1-ubuntu1404_amd64.deb
+  2. sudo /bin/systemctl start nessusd.service
+  3. https://localhost:8834/ 
+  4. Advanced -> Accept Risk and Continue
+  5. Nessus Essential -> Add email -> Add Activation Code
+  6. Username -> Password
+  7. 

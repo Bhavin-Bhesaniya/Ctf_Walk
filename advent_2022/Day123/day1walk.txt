@@ -1,0 +1,83 @@
+Phases of Unified Kill Chain, Security framework used to understand attacker
+
+
+
+Security Frameworks :-
+ - Improve security posture of orgranization
+ - Documented process that define policy and procedures that orgranization should follow to establish and
+   manage security controls
+ - Blueprints for identifying and managing risks and weakness in system
+ 
+
+
+NIST(National Institute Of Standards and Technology) Cybersecurity Framework :-
+ - Focus on Five Stages :- Identify -> Protect -> Detect -> Respond -> Recover
+ 
+
+
+International Organization of Standardization (ISO) 27000 Series :-
+ - Develop series of frameworks for different industries and sector
+ - 27001 and 27002 procedures for creating, implementing and managing Information security management system (ISMS)
+ - Assess organization ability to set information security requirement through application of risk management
+ 
+
+
+MITRE ATT-CK(Adversarial Tactics, Techniques, and Common Knowledge) Attack Framework :-
+ - Identifying adversary plans of attack by understood method, tools and strategies established for attack
+   known as Tactics, Techniques and Procedures(TTPs)
+ - Gives details information about Attack Pattern
+
+
+
+Cyber Kill Chain :-
+ - Described structure of an attack that commenly used as framework as part of intelligence-driven defence
+ - Developed by Lockheed Martin
+ 
+ Seven Stages :- 
+  Recon -> Weaponization -> Delivery -> Exploitation -> Installtion -> Command & Control -> Action on objective
+  
+
+
+Unified Kill Chain(UKC) :-
+ - Santa’s team left with clue on who might have attacked them and pointed out to Unified Kill Chain (UKC)
+ - Elf blue team beign research
+ - Unified Kill Chain can be described as the unification of the MITRE ATT&CK and Cyber Kill Chain framework
+ - Published by Paul pols in 2017 and reviewed in 2022
+ - UKC describes 18 phases of attack based on TTP
+ 
+
+ Cycle-1 :- IN -> gain access to a system
+  Reconnaissance :- Research on target using publicly available information
+  Weaponisation  :- Setting up needed infrastructure to host command and control centre(C2) to executing attack
+  Delivery :- Payloads/Malicious instruments delivered to target such as email phishing and supply chain attack
+  Social Engineering :- 
+   - Trick target to performing untrusted and unsafe action against payload they just delivered, often making
+     their message appear to come from trusted in-house source
+  Exploitation :- Find existing vulnerability in assets, they may use this to trigger their payload
+ 
+  Persistence :- Leave on network to make sure they have point of access to their target
+  Defence Evasion :- Remain anonymous throughout their exploits by disabling and avoiding any security defence
+   		     mechanisms enabled, including deleting evidence of their presence.
+  Command & Control: Communication channel between compromised system and attacker infrastructure establishe
+                     across internet
+ 
+ 
+ Cycle-2 :- Through -> Gain more access and privileges
+  Pivoting :- system will become the attack launchpad for other systems in the network
+  Discovery:- Gather as much information about compromised system such as available users and data
+  Privilege Escalation :- Seek higher privileges on compromised system by exploiting identified vulnerabilities or 		 	 misconfiguration
+  Execution :- With elevated privileges, malicious code may be downloaded and executed to extract sensitive info
+  Credential Access :- login credentials stored in the hard disk or memory
+  Lateral Movement  :- Move around different system or data storage within network 
+  
+ 
+ Cycle-3 :- OUT -> CIA assets services compromised during phase
+  Collection :- Jackpot of information such as PII
+  ExFilteration :- Ensure they have achieved their objectives without triggering suspicion
+  Impact -> Objectives :-  
+   
+    
+ Puzzle :- Flag(THM{IT'S A Y3T1 CHR1$TMA$})
+ 
+
+    

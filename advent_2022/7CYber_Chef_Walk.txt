@@ -1,0 +1,37 @@
+- Malicious document and find the domains it redirects to
+- Suspicious command to get executed when opened, an embedded malware as a dropper(malware installer component)
+
+
+Cyberchef :-
+ - Web-based application - used to slice, dice, encode, decode, parse and analyze data or files
+ 
+ STEPS :-
+  1. Add Files 
+  2. Extract String :- 
+   - ASCII or UNICODE printable 
+   - String -> All Printable character
+   - Increase minimum length until you remove all the noise and are only left with the meaningful string
+  3. Remove Pattern :-
+   - Attackers often add random characters to obfuscate the actual value
+   - Some repeated characters [ _ ]
+   - Regex -> Find/Replace
+   - put characters within the square brackets [ ] and use backslash \ to escape characters
+   - Final regex :- [\[\]_\n]
+   - PowerShell script, and it is using base64 Encoded string to hide the actual code
+  4. Drop BYtes :-
+   - To get access to base64 string, we need to remove the extra bytes
+   - Increase dropbytes length until top bytes removes
+  5. Decode Base64 :-
+   - From base64 function to decode this string
+  6. Decode UTF-16 :-
+   - PowerShell scripts use the Unicode UTF-16LE encoding by default
+  7. Find and Remove Common patterns :-
+   - Various repeated characters  ' ( ) + ' ` "   
+   - Find and Replace and remove character
+   - ]b2H_ with http in each domain
+   - replace ]b2H_ with Http
+  8. Extract URL and split with @ notation and \n delimeter
+  9. Its seem that various malicious software download from link
+  10. Defang url before send to SOC
+  
+   

@@ -1,0 +1,103 @@
+Santa’s Security Operations Center (SSOC) :-
+ - Web server "santagift.shop" hijacked by Bandit Yeti APT group
+ - Advanced persistent threat (APT) stealthy threat actor, typically nation state or state-sponsored group, 
+   which gains unauthorized access to computer network and remain undetected for extended period
+ 
+ Task :- Elf McBlue to analyse log files of server
+
+
+
+What is log files and why they useful :-
+ - Contain historical records of events and other data from application
+ - Login attempts or failure 
+ - Traffic on network
+ - Thing like website url, files accessed
+ - Password changes
+ - Application error(Used in Debugging)
+ 
+ - It important as pieces of evidence that :-
+  1. What, When and Where happend?
+  2. Who did it? Is it successful? 
+  3. What is result of action?
+  
+  
+ What log files content :-
+  1. Event timestamp(Ex :-Date & Time)
+  2. Service name that generating logfile(Ex :- SSH that allows user to login into a system remotely)
+  3. Actual event service log (Ex :- In event of fail authentication, what credentials tried and by whom?(IP) 
+ 
+ 
+ Common log file location :-
+  Windows :- Built-in Event-Viewer 
+   Application :-	
+    - Contain all events related to application on system
+    - You determine when service or application stopped and started and why
+    
+ 
+   Security :-	
+    - Contain all events related to system security 
+    - You can see when user logs into system or access credential manager for passwords	
+    
+ 
+   Setup :-	 
+    - Contain all events related to system maintenance 
+    Ex :- 
+     - Windows update logs stored here	
+     - System must restarted before "KB10134" can be installed
+     
+     
+   System :- 
+    - Events related to system itself like changes in system itself 
+    Ex :- 
+     - System powered on or off or when device such as USB drives are plugged-in or removed	
+     - System unexpectedly shutdown due to power issue
+    
+  
+  Linux(Ubuntu/Debian) :-
+   - Log files are Software specific located within /var/log directory
+   - ls -lah in /var/log
+   
+   Authentication :- auth.log
+    - usually attempted either remotely or on the system itself
+    - Accessing another user after logging in
+   
+   
+   Package Management :- dpkg.log
+    - When installing new software(package), logged in this file
+    - Useful for reverting and debugging changes incase installtion cause unintended behaviour on system
+    
+   
+   Syslog :- syslog
+    - Contain all event that happening in system background
+    - crontabs executing service such as log rotation
+   
+   
+   Kernel :- kern.log
+    - Change in kernel or output from device such as networking equipment or physical device such as USB device
+    - Firewalling registered
+    
+ 
+  
+ Look in log files / Log Analysis :-
+  Tools :- Splunk | Security Information and Event Management (SIEM)  
+  
+  SIEM :- 
+   - Dedicated but expensive to run | Collect wide variety logs but takes time to configure and setup
+   - Allow in-depth analysis at once but require proper knowledge to use
+  
+  
+  grep :- 
+   - Searching for given text in file   
+   - grep will first assume file in your current directory unless tell it otherwise by providing file path
+   
+   -i :- Perform case insensitive search
+   -E :- Searches using regex | 
+   -r :- Search recursively | search all of files in directory for this value
+  
+  
+  
+  
+ 
+Deploy Machine :-
+
+ssh elfmcblue@10.10.84.125   

