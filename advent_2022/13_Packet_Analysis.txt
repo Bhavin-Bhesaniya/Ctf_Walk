@@ -1,0 +1,41 @@
+Packet :-
+ - Basic unit of network data transferred over network from one host to another
+ - Process of extracting, assessing and identifying network patterns such as connections, shares, 
+   commands and other network activities, like logins, and system failures, from the prerecorded 
+   traffic files known as Packet Analysis
+ - Network traffic pure and rich data source
+ - Packet Capture (PCAP) of network events provides rich data source for analysis
+ - Threat detection and real-time performance troubleshooting cannot be done without packet analysis
+
+ Point to consider :-
+  Network and standard protocols knowledge
+  Familiarity with attack and defence concepts
+  Practical experience in analysis tools
+
+ Things to Consider :-
+  Hypothesis - Know what to look for before starting an analysis
+  Statistics - Show weight of traffic in capture file
+  Known Service - 
+   - Everyday operations like web browsing, file sharing and mailing
+   - Which protocol associated with which Service
+  Unknown Service - Potential Red Flags | Known howto research and quickly use them 
+  Known Patterns  
+  Environments
+
+
+WireShark :-
+ - Network protocol analysis and is essential in any traffic and packet investigation
+ - Statistics --> Protocol Hierarchy
+ - Statistics --> Conversations
+ - DNS -> Follow -> UDP Stream(Same for others)
+ - Filter HTTP packet
+ - Source is the Machine Which is the host that Downloads the File in this Case!!
+ - Right Click on the Packet that uses GET Request to mysterygift.exe and click Follow → http Stream
+ - Right-click on the Packet of Non-executable File and Follow the http stream
+ - File→Export Objects-> HTTP  | Now open Terminal and Type the Command :- sha256sum mysterygift.exe
+ - VIrus total -> Behaviour tab and Scroll below to Find IP
+
+
+
+
+

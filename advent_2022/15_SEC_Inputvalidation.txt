@@ -1,0 +1,27 @@
+Unrestricted File Uploads usually have two main exploitation paths :-
+ - If attacker can retrieve the uploaded file, it could lead to code execution if the attacker uploads 
+   file such as a web shell
+ - If the file is viewed by a user, think of a CV application, then an attacker could embed malware 
+   in the uploaded file that would execute on the user's workstation once they view the file
+
+
+When a resource is requested web server will first execute some instructions found in these pages 
+before sending the compiled response back to the user. 
+
+- If we can upload anyfile like aspx webshell and if this files stored in webroot, we could request file
+  from server 
+- Forceing server to process file before sending the compiled response
+- However if stored outside webroot, cannot make request but this protection not sufficient
+ 1. Other vulnerabilities, such as local file inclusion,
+ 2. Rather than targeting web server directly, we could target the users
+
+
+ FIle uploaded
+ File Content Validation
+ File Extension Validation
+ File Size Validation
+ File Renaming
+ Malware Scanning
+
+ 
+

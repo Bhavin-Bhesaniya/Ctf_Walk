@@ -1,8 +1,0 @@
-# Nmap 7.93 scan initiated Tue Dec  6 23:08:07 2022 as: nmap -sC -sV -Pn -oN nmap_result.txt 10.10.9.190
-Nmap scan report for 10.10.9.190
-Host is up.
-All 1000 scanned ports on 10.10.9.190 are in ignored states.
-Not shown: 1000 filtered tcp ports (no-response)
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Tue Dec  6 23:11:35 2022 -- 1 IP address (1 host up) scanned in 207.07 seconds

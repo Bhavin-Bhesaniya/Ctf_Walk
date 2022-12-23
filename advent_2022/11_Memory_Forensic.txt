@@ -1,0 +1,46 @@
+Memory Forensics :-
+ - Analysis of volatile memory that use when computer is powered on 
+ - RAM remember what being performed on computer at the time 
+ - RAM extremely quick and is the preferred method of storing and accessing data 
+ - It is Limited so that data store is volatile because it will be deleted when computer is powered off
+ - RAM stores data such as your clipboard or unsaved files
+ - Analyse memory to see what application(processes), what network connection were being made and many more
+   useful pieces of information 
+ - Memory dump is full capture of what was happening on Computer at the time
+ - Malicious code hide from users but cannot hide from memory
+ 
+
+
+Process :-
+ - Process is program in running execution
+ User Process - Start by User like notepad.exe
+ Background   - Managed by OS like dwn.exe(Display windows and application on computer)
+ 
+ 
+ 
+Volatility :-
+ - Open-source memory forensics toolkit written in Python
+ - Analyse memory dumps taken from Windows, Linux and Mac OS
+ - List all processes that were running on the device at the time of the capture
+ - python3 vol.py -h
+ 
+ Common command option :-
+  -f  - Provide name and location of the memory dump that you wish to analyse
+  -v  - Increases verbosity of Volatility
+  -p  - Override the default location of where plugins are stored
+  -o  - specify where extracted processes or DLLs are stored
+ 
+ imageinfo - Plugin to analyse our memory dump file to determine OS
+  T - python3 vol.py -f workstation.vmem windows.info
+  
+ - We confirmed that OS is windows now use windows sub-set of plugins with Volatility
+
+ windows.pslist - lists all of the processes at that were running at the time of the capture
+ windows.psscan - To discover what a specific process was actually doing
+ windows.dumpfiles - Export specific binary for further analyse through static or dynamic analysis
+ windows.netstat   - Lists all network connection at the time of the capture
+ 
+ T - python3 vol.py -f workstation.vmem windows.info
+ T - python3 vol.py -f workstation.vmem windows.pslist
+ T - python3 vol.py -f workstation.vmem windows.dumpfiles --pid 2040
+  
