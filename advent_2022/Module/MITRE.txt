@@ -1,0 +1,36 @@
+MITRE :-
+ - Common Vulnerabilities and Exposures(CVE) list
+ Projects :-
+  ATT&CK - Adversarial Tactics, Techniques, and Common Knowledge Framework
+  CAR    - Cyber Analytics Repository Knowledge Base
+  ENGAGE - Sorry, not a fancy acronym
+  D3FEND - Detection, Denial, and Disruption Framework Empowering Network Defense
+  AEP    - ATT&CK Emulation Plans
+
+
+
+Basic Terminology :-
+ - Advanced Persistent Threat(APT) Can be Considered Threat group or nation-state group that engages in long-term attacks against organizations and/or countries
+ 
+ Tactics, Techniques, and Procedures(TTP) :-
+  Tactics   - Goal or objective
+  Technique - How adversary achieves the goal or objective
+  Procedure - How Technique executed
+
+
+
+ATT&CK Framework :-
+ - Globally-accessible knowledge base of adversary tactics and techniques based on real-world observation
+ - Document Common TTP used by APT against enterprise windows attacks
+ - Intiall project FMX(Fort Meade Experiment) Where Professional Collect data to construct what we today known as ATTACK Framework
+
+ Phishing :-
+  - Electronically delivered social engineering that contain malicious attachment or links to execute malicious code on vicitim systems to gather credentials
+  Spearphishing - Individual Company or industry will be targeted 
+
+
+
+Cyber Analytics Repository(CAR):-
+ - knowledge base of analytics developed by MITRE
+ - Define data model that is leveraged in its pseudocode representation but also includes implementations directly targeted at specific tools
+ Event Query Language(EQL) :- Utilized to query, parse, and organize Sysmon event data
