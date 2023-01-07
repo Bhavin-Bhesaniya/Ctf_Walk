@@ -1,0 +1,20 @@
+HTML5 Input validation
+Regex 101 :-
+ []	Character Set: matches any single character/range of characters inside
+ .	Wildcard: matches any character
+ * 	Star / Asterisk Quantifier: matches the preceding token zero or more times
+ +	Plus Quantifier: matches the preceding token one or more times
+ ()	Grouping: groups a specific part of the regex for better management
+ \	Escape: escapes the regex operator so it can be matched
+ ?	Optional: specifies that the preceding token is optional
+ ^	Anchor Beginning: specifies that the consequent token is at the beginning of the string
+ $	Anchor Ending: specifies that the preceding token is at the end of the string
+ {min,max}	Curly Brace Quantifier: specifies how many times the preceding token can be repeated
+
+
+Unique Case of Free-Form Text :- 
+ 
+Excercise :-
+ egrep '^[a-zA-Z0-9]{6,12}$' strings
+ egrep '^.+@.+\.com' strings
+ egrep '^http(s)?(www)?.+\.' strings

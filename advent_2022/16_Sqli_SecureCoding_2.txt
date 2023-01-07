@@ -1,0 +1,6 @@
+Sql :- Structured Query Language
+Queries :- Instructions that ask for specific data in structured way that database can understand
+intval()
+Prepared statements allow you to separate the syntax of your SQL sentence from the actual parameters used on your WHERE clause
+
+

