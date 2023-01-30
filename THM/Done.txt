@@ -1,0 +1,31 @@
+Principles of Security
+Walking an Application
+Intro to Containersiation
+Intro to Digital Forensic
+Junior Security Analyst Intro
+Intro to Defensive Security
+Pentesting Fundamentals
+
+Nessus
+Nmap
+Hydra
+OpenVPN
+Intro to LAN
+Networking
+What is Networking?
+DNS in details
+Linux Fundamentals 1,2,3
+Advent of Cyber 2022
+Vulnversity
+Introduction to devsecops
+
+
+CTF -
+Basic Pentesting
+Mr. Robot CTF
+Simple CTF
+RootME
+Pickle Rickle
+OhSINT
+Crack the hash
+Agent Sudo
