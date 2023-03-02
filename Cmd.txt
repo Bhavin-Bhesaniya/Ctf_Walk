@@ -1,3 +1,28 @@
+Special Key :- with Ctrl
+ A - Move to beginning
+ B - Backward one character
+ C - Cancel currently running command
+ D - Logout current session
+ E - To end file
+ F - Forward one cursor
+ P - Paste Previous line
+ R - Search Previously used 
+ S - Stop output on screen
+ Q - Loses Application Window
+ U - Erase complete line
+ W - Delete last word typed
+
+
+Control Operator - 
+ ; - Put more than one command in command line |   echo hello ; echo world
+ & - Process go in background shown result when execution completed
+
+
+sleep   - Suspend execution particular seconds 
+strings - To read binary files
+
+
+
 Basic :-
  ls - Lists all files and directories in the present working directory
  cd - Changing Directories
@@ -5,6 +30,7 @@ Basic :-
  nano - Terminal based text editor
  <tool> -h - Print help page of the tool
  apropos <keyword> - Searches through man pages' descriptions for instances of a given keywor
+
 
 
 
@@ -16,36 +42,38 @@ Environment :-
 
 
 
-Process :-
- ps    :- See processes running status
- fg    :- Put process into foreground
- pid   :- Return Current process id
- top   :- Active process(htop)
- bg/c+z:- Used to run process in background
- ps -f :- Provide more information about process
- ppid  :- Return Parent Process id
- kill  :- Terminating Current process(Ctrl+c)(killall)(pkill)
- jobs  :- Lists all processes that are running in the background
- nice  :- Start new process with specified priority
- renice :- Change the nice value of a currently running process
+
+Process -
+ ps    - See processes running status
+ fg    - Put process into foreground
+ pid   - Return Current process id
+ top   - Active process(htop)
+ bg/c+z- Used to run process in background
+ ps -f - Provide more information about process
+ ppid  - Return Parent Process id
+ kill  - Terminating Current process(Ctrl+c)(killall)(pkill)
+ jobs  - Lists all processes that are running in the background
+ nice  - Start new process with specified priority
+ renice - Change the nice value of a currently running process
 
 
 
-Pipe and Filter :-
- $ls -l | grep "Aug" :- Run ls and Grep command together(Redirect Output)
- sort :- Arrange lines of text alphabetically(Default) or numerically
+Pipe and Filter -
+ ls -l | grep "Aug" :- Run ls and Grep command together(Redirect Output)
+ sort - Arrange lines of text alphabetically(Default) or numerically
 
 
 
-Network :-
- ss - Investigate sockets statistics | showing information similar to netstat | More TCP information
- su - Request user credentials | Default user superuser/running an interactive shell as root
- pr - Paginate files for printing
+Network -
+ ip - Show or manipulate routing, network devices, interfaces, and tunnels  
+ ss - Investigate sockets
+ su - Request user credentials via PAM and switches to that user ID (Default user superuser)
+ pr - Does minor formatting files on terminal screen or for printer
  
- ssh  - Remote Access Unix machine
+ ssh  - Access remote Unix machine
  ftp  - Upload and download file from remote computer
- gpg  - Used in linux for secure communication using encryption of OpenPGP part of GNU Privacy guard(GnuPG)
- scp  - File Transfer on server(Secure Transfer copy file) use authentication and login session
+ gpg  - Used in linux for secure communication
+ scp  - File Transfer on server(Secure Transfer copy file)
  dir  - Display file in current directory
  put  - Upload file from local computer to remote computer
  get  - Download file from remote to local
@@ -65,21 +93,24 @@ Network :-
  finger - Check all logged-in users on local machine
  lp/lpr - Print file onto paper
  
- tcpdump - network troubleshooting command which is also known as a packet sniffer is used to capture and display packets from a network
+ tcpdump - network troubleshooting command which known as packet sniffer used to capture and display packet from network
  netstat - Shows network status
  ethtool - Query or control network driver and hardware settings
  
- updatedb - Updates the locale database for existing contents on the system
- ifconfig - Assign or view address to network interface and/or configure network interface parameters
+ updatedb - Update locale database for existing content on system
+ ifconfig - Assign or View address to network interface and/or configure network interface parameters
  hostname - Set or print name of current host system
- nslookup - querying the Domain Name System to obtain domain name or IP address from DNS record
+ nslookup - Querying Domain Name System to obtain domain name or IP address from DNS record
  
- traceroute	- Trace network path taken to a device
+ traceroute	- Trace network path taken to device
  dig -x IP_ADDRESS :- Reverse lookup of IP_ADDRESS
 
+ netcat 
 
 
-File/Directory command :- 
+
+
+File/Directory command - 
  cd - Change Directory 
  cp - Copies one file/directory to specified location
  wc - Prints newline, word, and byte counts for a given input
@@ -125,7 +156,7 @@ File/Directory command :-
  head - Show beginning of file
  less - Browses file from end or beginning
  tail - Show end of file
- touch - Create blank file or update modification time
+ touch - Create blank file or update modification time 
  which - Show location of file if it in PATH
  whereis - Show location of file
  modinfo - Get information about any particular module
@@ -137,7 +168,8 @@ File/Directory command :-
  tar cfz- Create tar archive with gzip compression(xzf,cjf,xjf)
 
 
- 
+
+
 System :-
  w - Who is online
  df - Display disk space usage
@@ -145,9 +177,9 @@ System :-
  
  cal  - Month calender
  date - Current date
- lshw - Displays information on the hardware configuration of the system
+ lshw - Displays information on hardware configuration of system
  
- fdisk - view the existing partitions, create a new partition, delete or change existing partitions.
+ fdisk - View existing partition, Create new partition, delete or change existing partition
  lsblk - Displays block device-related information of the machine
  watch - Showing Periodic updates
  dmesg - Display messages in kernel ring buffer
@@ -182,7 +214,8 @@ System :-
 
 
 
-User :-
+
+User -
  id  - Returns users identity
  who - Display who is logged in
  last - Who last logging
@@ -199,15 +232,18 @@ User :-
  logger - Send logging messages to syslogd daemon
  gshadow - Secure group account information
 
- useradd - Lowlevel utility to Add account to system
- adduser - Highlevel utility to add account to system 
- usermod - Modifies account attributes
- deluser - Delete account from system
+ useradd  - Lowlevel utility to Add account to system  but not created home directory
+ usermod  - Modifies account attributes
+ userdel  - Delete account
+ adduser  - Highlevel utility to add account to system 
+ deluser  - Delete account from system
  groupadd - Adds group to system
  groupmod - Modifies group attributes
+ gpasswd  - Add password to group 
  groupdel - Remove group from system
  addgroup - Add group to the system
  delgroup - Remove group from the system
+
 
 
 
@@ -216,6 +252,7 @@ Run initialization Script in different shell :-
  .kshrc   - Korn shell (ksh) initialization script
  .cshrc   - C shell (csh) initialization script
  .rhosts  - Remote shell configuration file
+
 
 
 
